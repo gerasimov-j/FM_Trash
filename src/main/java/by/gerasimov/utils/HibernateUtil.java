@@ -1,9 +1,15 @@
 package by.gerasimov.utils;
 
 import by.gerasimov.hibernate.model.Country;
+import by.gerasimov.hibernate.model.Manager;
+import by.gerasimov.hibernate.model.Match;
+import by.gerasimov.hibernate.model.Player;
 import by.gerasimov.hibernate.model.Season;
 import by.gerasimov.hibernate.model.Stadium;
+import by.gerasimov.hibernate.model.Team;
 import by.gerasimov.hibernate.model.TeamType;
+import by.gerasimov.hibernate.model.Tournament;
+import by.gerasimov.hibernate.model.TournamentSeason;
 import java.util.HashMap;
 import java.util.Map;
 import org.hibernate.SessionFactory;
@@ -37,6 +43,12 @@ public class HibernateUtil {
                 sources.addAnnotatedClass(Stadium.class);
                 sources.addAnnotatedClass(Season.class);
                 sources.addAnnotatedClass(TeamType.class);
+                sources.addAnnotatedClass(Player.class);
+                sources.addAnnotatedClass(Manager.class);
+                sources.addAnnotatedClass(Team.class);
+                sources.addAnnotatedClass(Tournament.class);
+                sources.addAnnotatedClass(TournamentSeason.class);
+                sources.addAnnotatedClass(Match.class);
                 Metadata metadata = sources.getMetadataBuilder().build();
                 sessionFactory = metadata.getSessionFactoryBuilder().build();
             } catch (Exception e) {
